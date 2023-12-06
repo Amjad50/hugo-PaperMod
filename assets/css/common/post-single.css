@@ -256,18 +256,41 @@
 .toc {
     margin: 0 2px 40px 2px;
     border: 1px solid var(--border);
-    background: var(--code-bg);
+    background: var(--entry);
     border-radius: var(--radius);
     padding: 0.4em;
 }
 
-.dark .toc {
-    background: var(--entry);
+.toc-container.wide {
+    position: absolute;
+    height: 100%;
+    top: calc(var(--gap) * 2);
+    width: var(--toc-width);
+    border-right: 1px solid var(--border);
+    left: calc((var(--toc-width) + var(--gap)) * -1);
+}
+
+.toc-container.wide.right {
+    left: unset;
+    border-right: unset;
+    border-left: 1px solid var(--border);
+    right: calc((var(--toc-width) + var(--gap)) * -1);
+}
+
+.wide .toc {
+    position: sticky;
+    top: var(--gap);
+    border: unset;
+    background: unset;
+    border-radius: unset;
+    width: 100%;
+    margin: 0 2px 40px 2px;
 }
 
 .toc details summary {
     cursor: zoom-in;
     margin-inline-start: 20px;
+    padding: 12px 0;
 }
 
 .toc details[open] summary {
@@ -279,9 +302,18 @@
     font-weight: 500;
 }
 
+.toc-container.wide .toc .inner {
+    margin: 0;
+}
+
+.active {
+    font-weight: 600;
+}
+
 .toc .inner {
-    margin: 0 20px;
-    padding: 10px 20px;
+    margin: 0 0 0 20px;
+    padding: 0px 15px 15px 20px;
+    font-size: 16px;
 }
 
 .toc li ul {
@@ -306,7 +338,7 @@
 .share-buttons,
 .paginav {
     border-radius: var(--radius);
-    background: var(--code-bg);
+    background: var(--tertiary);
     border: 1px solid var(--border);
 }
 
@@ -358,7 +390,6 @@ h6:hover .anchor {
     margin: 10px 0;
     display: flex;
     line-height: 30px;
-    border-radius: var(--radius);
 }
 
 .paginav a {
